@@ -1,0 +1,98 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="IncomeCalculator.SiteMaster" %>
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head runat="server">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Income Calculator</title>
+
+    <asp:PlaceHolder runat="server">
+        <%: Scripts.Render("~/bundles/modernizr") %>
+    </asp:PlaceHolder>
+
+    <webopt:bundlereference runat="server" path="~/Content/css" />
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+
+</head>
+<body>
+    <form runat="server">
+        <asp:ScriptManager runat="server">
+            <Scripts>
+                <%--To learn more about bundling scripts in ScriptManager see https://go.microsoft.com/fwlink/?LinkID=301884 --%>
+                <%--Framework Scripts--%>
+                <asp:ScriptReference Name="MsAjaxBundle" />
+                <asp:ScriptReference Name="jquery" />
+                <asp:ScriptReference Name="bootstrap" />
+                <asp:ScriptReference Name="WebForms.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebForms.js" />
+                <asp:ScriptReference Name="WebUIValidation.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebUIValidation.js" />
+                <asp:ScriptReference Name="MenuStandards.js" Assembly="System.Web" Path="~/Scripts/WebForms/MenuStandards.js" />
+                <asp:ScriptReference Name="GridView.js" Assembly="System.Web" Path="~/Scripts/WebForms/GridView.js" />
+                <asp:ScriptReference Name="DetailsView.js" Assembly="System.Web" Path="~/Scripts/WebForms/DetailsView.js" />
+                <asp:ScriptReference Name="TreeView.js" Assembly="System.Web" Path="~/Scripts/WebForms/TreeView.js" />
+                <asp:ScriptReference Name="WebParts.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebParts.js" />
+                <asp:ScriptReference Name="Focus.js" Assembly="System.Web" Path="~/Scripts/WebForms/Focus.js" />
+                <asp:ScriptReference Name="WebFormsBundle" />
+                <%--Site Scripts--%>
+            </Scripts>
+        </asp:ScriptManager>
+
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div style="color: #F8F8F8; font-size: 20px" forecolor="#F8F8F8">
+                    ASP.NET Project - Income Calculator - Ponta Ciprian
+                    <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                        <ContentTemplate>
+                            <asp:Image ID="imageAd1" runat="server" ImageUrl="~/images/ferrari.jpg" Height="100px" Width="150px" />
+                            &nbsp
+                            &nbsp
+                            &nbsp
+                            <asp:Image ID="imageAd2" runat="server" ImageUrl="~/images/red_bull.jpg" Height="100px" Width="150px" />
+                            &nbsp
+                            &nbsp
+                            &nbsp
+                            <asp:Label ID="lblTime" runat="server" Text=""></asp:Label>
+                            <asp:Timer ID="swTimer" runat="server" OnTick="Timer1_Tick" Interval="1000"></asp:Timer>
+                        </ContentTemplate>
+                    </asp:UpdatePanel>
+                </div>
+                <div class="color: #f8f8f8">
+                    <asp:Menu ID="Menu1" runat="server" Orientation="Horizontal" ForeColor="#F8F8F8" Font-Size="15px">
+                        <DynamicHoverStyle BackColor="#282424" Width="150px" />
+                        <DynamicMenuItemStyle BackColor="#282424" Width="150px" VerticalPadding="5px" />
+                        <Items>
+                            <asp:MenuItem Text="Home" Value="Home" NavigateUrl="~/Home"></asp:MenuItem>
+                            <asp:MenuItem Text="Add Employees" Value="Add Employees">
+                                <asp:MenuItem Text="Add New Employees" Value="Add New Employees" NavigateUrl="~/AddNewEmployees">
+                                </asp:MenuItem>
+                                <asp:MenuItem Text="Update Employees" Value="Update Employees" NavigateUrl="~/UpdateEmployees">
+                                </asp:MenuItem>
+                                <asp:MenuItem Text="Delete Employees" Value="Delete Employees" NavigateUrl="~/DeleteEmployees">
+                                </asp:MenuItem>
+                            </asp:MenuItem>
+                            <asp:MenuItem Text="Reports" Value="Reports">
+                                <asp:MenuItem Text="Payroll" Value="Payroll" NavigateUrl="~/Payroll2"></asp:MenuItem>
+                                <asp:MenuItem Text="Salary Slips" Value="Salary Slips" NavigateUrl="~/SalarySlips"></asp:MenuItem>
+                            </asp:MenuItem>
+                            <asp:MenuItem Text="Percentages" Value="Percentages" NavigateUrl="~/PercentagesLogin"></asp:MenuItem>
+                        </Items>
+                        <StaticMenuItemStyle Width="150px" VerticalPadding="5px" />
+                    </asp:Menu>
+                </div>
+            </div>
+        </div>
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <div class="container body-content">
+            <asp:ContentPlaceHolder ID="MainContent" runat="server">
+            </asp:ContentPlaceHolder>
+            <hr />
+        </div>
+    </form>
+</body>
+</html>
