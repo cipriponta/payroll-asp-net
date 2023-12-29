@@ -7,4 +7,4 @@ The website contains multiple features such as:
 - Updating data about a current employee
 - Deleting employees
 - Automatic salary and taxes calculations
-- Reports that the current cost of the business
+- Reports that present the current cost of the business
